@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery星级评分插件RatingStars|DEMO_jQuery之家-自由分享jQuery、html5、css3的插件库</title>
+	<!-- Bootstrap core CSS -->
+   <link href="https://cdn.bootcss.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome core CSS -->
+    <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css"><!--演示页面样式，使用时可以不引用-->
+	<style>
+        a {
+            color: #f1c40f;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            color: #dab10d;
+        }
+
+        .rating-stars {
+            width: 100%;
+            text-align: center;
+        }
+
+        .rating-stars .rating-stars-container {
+            font-size: 0px;
+        }
+
+        .rating-stars .rating-stars-container .rating-star {
+            display: inline-block;
+            font-size: 32px;
+            color: #555555;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .rating-stars .rating-stars-container .rating-star.is--active,
+        .rating-stars .rating-stars-container .rating-star.is--hover {
+            color: #f1c40f;
+        }
+
+        .rating-stars .rating-stars-container .rating-star.is--no-hover {
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>jQuery星级评分插件RatingStars <span>Small Rating Controls With Custom Icons - jQuery RatingStars</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://www.htmleaf.com/" title="jQuery之家" target="_blank"><span> jQuery之家</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://www.htmleaf.com/jQuery/Rating-Star-Rating/201808145276.html" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+		<nav class="site-header py-1">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2" href="#">
+                <i class="fa fa-star fa-2x"></i>
+            </a>
+        </div>
+    </nav>
+
+    <div class="position-relative overflow-hidden p-3 p-md-6 m-md-3 text-center bg-light">
+        <a class="py-2 d-none d-md-inline-block" href="index.html">使用示例</a>
+		        <a class="py-2 d-none d-md-inline-block" href="index2.html">事件示例</a>
+
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+            <h3>rating stars with changing event</h3>
+            <p>
+                ratingChanged (click on a star):
+                <span id="ratingChanged"></span>
+            </p>
+            <p>
+                ratingOnEnter (mouse enter on a star):
+                <span id="ratingOnEnter"></span>
+            </p>
+            <p>
+                ratingOnLeave (leave a star):
+                <span id="ratingOnLeave"></span>
+            </p>
+            <div class="rating-stars block">
+                <input type="number" readonly="readonly" class="form-control rating-value" name="rating-stars-value" id="rating-stars-value">
+                <div class="rating-stars-container">
+                    <div class="rating-star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="rating-star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="rating-star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="rating-star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="rating-star">
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+        </div>
+    </div>
+		<div class="related">
+		    <h3>如果你喜欢这个插件，那么你可能也喜欢:</h3>
+		    <a href="http://www.htmleaf.com/css3/css3donghua/201605303534.html">
+			  <img src="related/1.jpg" width="300" alt="炫酷纯CSS3星级评分动画特效"/>
+			  <h3>炫酷纯CSS3星级评分动画特效</h3>
+			</a>
+			<a href="http://www.htmleaf.com/jQuery/Rating-Star-Rating/201604053300.html">
+			  <img src="related/2.jpg" width="300" alt="star-rating-svg | jQuery星级评分插件"/>
+			  <h3>star-rating-svg | jQuery星级评分插件</h3>
+			</a>
+		</div>
+	</div>
+	
+	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <script src="js/jquery.rating-stars.min.js"></script>
+    <script>
+        var ratingOptions = {
+            selectors: {
+                starsSelector: '.rating-stars',
+                starSelector: '.rating-star',
+                starActiveClass: 'is--active',
+                starHoverClass: 'is--hover',
+                starNoHoverClass: 'is--no-hover',
+                targetFormElementSelector: '.rating-value'
+            }
+        };
+
+        $(".rating-stars").ratingStars(ratingOptions);
+
+        $(".rating-stars").on("ratingChanged", function (ev, data) {
+            $("#ratingChanged").html(data.ratingValue);
+        });
+
+        $(".rating-stars").on("ratingOnEnter", function (ev, data) {
+            $("#ratingOnEnter").html(data.ratingValue);
+        });
+
+        $(".rating-stars").on("ratingOnLeave", function (ev, data) {
+            $("#ratingOnLeave").html(data.ratingValue);
+        });
+    </script>
+</body>
+</html>

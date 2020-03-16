@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>CmPage 系统登录</title>
+  <meta name="renderer" content="webkit">
+  <script src="/static/bjui/js/jquery-1.11.3.min.js"></script>
+  <script src="/static/bjui/js/jquery.cookie.js"></script>
+  <link href="/static/bjui/themes/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    html, body { height: 100%; overflow: hidden; }
+    body {
+      font-family: "Verdana", "Tahoma", "Lucida Grande", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+      background: url(/static/images/loginbg_01.jpg) no-repeat center center fixed;
+      background-size: cover;
+    }
+    .form-control{height:37px;}
+    .main_box{position:absolute; top:45%; left:50%; margin:-200px 0 0 -180px; padding:15px 20px; width:360px; height:400px; min-width:320px; background:#FAFAFA; background:rgba(255,255,255,0.5); box-shadow: 1px 5px 8px #888888; border-radius:6px;}
+    .login_msg{height:30px;}
+    .input-group >.input-group-addon.code{padding:0;}
+    #captcha_img{cursor:pointer;}
+    .main_box .logo img{height:35px;margin-top: 10px;}
+    @media (min-width: 768px) {
+      .main_box {margin-left:-240px; padding:15px 55px; width:480px;}
+      .main_box .logo img{height:40px;}
+    }
+  </style>
+</head>
+<body onload="createCode()">
+<div class="container">
+  <div class="main_box">
+    <form action="/admin/index/login/post" id="login_form" method="post">
+      <p class="text-center logo"><img src="/static/images/logo.png" height="45"></p>
+      <div class="form-group" style="margin-top:30px;">
+        <div class="input-group">
+          <span class="input-group-addon" ><span class="glyphicon glyphicon-user"></span></span>
+          <input type="text" class="form-control" id="loginName" name="loginName" value="<%= vb.loginName%>" placeholder="登录名" aria-describedby="sizing-addon-user">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" ><span class="glyphicon glyphicon-lock"></span></span>
+          <input type="password" class="form-control" id="loginPwd" name="loginPwd" value="<%= vb.loginPwd%>" placeholder="登录密码" aria-describedby="sizing-addon-password">
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" id="login_ok" onclick="return loginCheckForm();"  class="btn btn-primary btn-lg">&nbsp;登&nbsp;录&nbsp;</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="reset" class="btn btn-default btn-lg">&nbsp;重&nbsp;置&nbsp;</button>
+      </div>
+      <div class="text-center">
+        <hr>
+          <a href="#"><%= vb.msg%></a>
+      </div>
+      <input id="clientWidth" name="clientWidth" type="hidden" value="1200">
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+    choose_bg();
+    var fontsize = $.cookie('bjui_font') || 'bjui-font-d';
+    $.cookie('bjui_font',fontsize);
+
+    function loginCheckForm() {
+        if ($("#LoginName").val() == "") {
+            $("#loginMsg").html("请输入用户名");
+            $("#LoginName").focus();
+            return false;
+        }
+        if ($("#LoginPwd").val() == "") {
+            $("#loginMsg").html("请输入密码");
+            $("#LoginPwd").focus();
+            return false;
+        }
+        $("#clientWidth").val(document.documentElement.clientWidth);
+        return true;
+    }
+
+    function choose_bg() {
+        var bg = Math.floor(Math.random() * 9 + 1);
+        $('body').css('background-image', 'url(/static/images/loginbg_0' + bg + '.jpg)');
+    }
+
+</script>

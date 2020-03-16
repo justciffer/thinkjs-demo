@@ -21,7 +21,12 @@ module.exports = [
     handle: 'trace',
     enable: !think.isCli,
     options: {
-      debug: isDev
+      sourceMap: false,
+      debug: isDev, // 是否打印详细的错误信息
+      error(err) {
+        // 这里可以根据需要对错误信息进行处理，如：上报到监控系统
+        console.error(err);
+      }
     }
   },
   {
@@ -35,6 +40,7 @@ module.exports = [
     handle: 'router',
     options: {}
   },
+  'loginFilter',
   'logic',
   'controller'
 ];
