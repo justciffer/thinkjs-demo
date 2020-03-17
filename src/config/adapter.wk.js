@@ -37,7 +37,7 @@ exports.model = {
     logConnect: true, // 是否打印数据库连接信息
     logSql: true, // 是否打印 SQL 语句
     logger: msg => think.logger.info(msg) // 打印信息的 logger
-  },
+},
   admin: { // 业务数据库设置
     handle: mysql,
     type: "mysql",
@@ -69,7 +69,7 @@ exports.session = {
       overwrite: false
     }
   },
-  mysql:{
+   mysql:{
     handle:mysqlSession,
     // optional config fields,merge model.mysql if empty
     database: 'shiro',

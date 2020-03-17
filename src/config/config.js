@@ -1,8 +1,8 @@
 // default config
 module.exports = {
     port: 8000,
+    workers: 1, // 可以根据实际情况修改，0 为 cpu 的个数
     cmpage:{
-        sys_name:'ebs',
-        connNames: ["ebs-admin"]     //数据库连接配置的名称
+        sys_name:'ebs'
     }
 };

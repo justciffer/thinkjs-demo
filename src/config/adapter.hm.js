@@ -37,17 +37,17 @@ exports.model = {
     logConnect: true, // 是否打印数据库连接信息
     logSql: true, // 是否打印 SQL 语句
     logger: msg => think.logger.info(msg) // 打印信息的 logger
-  },
+},
   admin: { // 业务数据库设置
     handle: mysql,
     type: "mysql",
-    database: 'shiro',
+    database: 'ebs-admin',
     prefix: '',
     encoding: 'utf8',
-    host: '192.168.16.2',
+    host: '127.0.0.1',
     port: '',
     user: 'root',
-    password: 'P@44w0rd',
+    password: '123456',
     dateStrings: true
   }
 }
@@ -69,15 +69,15 @@ exports.session = {
       overwrite: false
     }
   },
-  mysql:{
+   mysql:{
     handle:mysqlSession,
     // optional config fields,merge model.mysql if empty
-    database: 'shiro',
+    database: 'ebs-admin',
     prefix: 'think_',
-    host: '192.168.16.2',
+    host: '127.0.0.1',
     port: '3306',
     user: 'root',
-    password: 'P@44w0rd',
+    password: '123456',
     gcInterval: 3600 * 1000 //gc interval
   }
 }

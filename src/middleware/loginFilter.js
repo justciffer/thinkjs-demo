@@ -1,4 +1,6 @@
 module.exports = (options, app) => {
+
+
     // 这里的 app 为 think.app 对象
     return async (ctx, next) => {
         //部分 action 下不检查
