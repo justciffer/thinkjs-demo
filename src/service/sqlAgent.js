@@ -6,6 +6,9 @@ const Sequelize = require('sequelize');
 //sudo npm install -g sequelize-auto
 //sudo npm install -g mysql
 //sequelize-auto -o "./src/models" -d shiro -h 192.168.16.2 -u root -p 3306 -x P@44w0rd -e mysql
+
+//sequelize-auto -o "./src/models" -d ebs-admin -h 127.0.0.1 -u root -p 3306 -x 123456 -e mysql
+
 module.exports = class extends think.Service {
     constructor() {
         super();
