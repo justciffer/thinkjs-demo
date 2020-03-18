@@ -3,7 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('t_user', {
     id: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.STRING(255),
       allowNull: false,
       primaryKey: true
     },
@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     c_role: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     c_login_name: {

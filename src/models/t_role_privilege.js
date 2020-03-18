@@ -3,16 +3,16 @@
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('t_role_privilege', {
     id: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.STRING(255),
       allowNull: false,
       primaryKey: true
     },
     c_role: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     c_privilege: {
-      type: DataTypes.INTEGER(10),
+      type: DataTypes.STRING(255),
       allowNull: true
     },
     c_allow: {

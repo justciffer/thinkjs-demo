@@ -3,17 +3,13 @@
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('t_login', {
     id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.STRING(255),
       allowNull: false,
       primaryKey: true
     },
     c_user: {
-      type: DataTypes.INTEGER(11),
-      allowNull: false,
-      references: {
-        model: 't_user',
-        key: 'id'
-      }
+      type: DataTypes.STRING(255),
+      allowNull: false
     },
     c_ip: {
       type: DataTypes.STRING(50),
