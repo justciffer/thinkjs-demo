@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "excel-export": "0.5.1",
-    "http-proxy": "^1.17.0",
+    "http-proxy": "^1.18.1",
     "mysql2": "^1.5.1",
     "sequelize": "^4.44.3",
     "tedious": "^2.1.5",
